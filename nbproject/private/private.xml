@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/GUI/ModeloDeTablaDePromociones.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/Logic/Sucursal.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/Promocion.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/proyectoprocesos/ProyectoProcesos.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/PromocionDAO.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/GUI/VentasController.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/GUI/AdministrarPromocionesController.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/VentaDAO.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/IVenta.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/IPromocion.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/DataBaseManager.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/GUI/LoginController.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/Logic/Usuario.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/GUI/Login.fxml</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/Logic/Producto.java</file>
+            <file>file:/D:/yusgu/Documents/NetBeansProjects/ProyectoProcesos/src/mx/uv/fei/DataAccess/UsuarioDAO.java</file>
+        </group>
+    </open-files>
+</project-private>

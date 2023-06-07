@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="mx.uv.fei.GUI.LoginController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="172.0" layoutY="46.0" prefHeight="90.0" prefWidth="257.0" text="Proyecto Procesos">
+               <font>
+                  <Font name="Elephant" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="193.0" layoutY="155.0" text="Usuario" />
+            <Label layoutX="193.0" layoutY="219.0" text="Contraseña" />
+            <Label fx:id="lblMensaje" layoutX="146.0" layoutY="296.0" prefHeight="17.0" prefWidth="296.0" />
+            <TextField fx:id="txtUsuario" layoutX="193.0" layoutY="188.0" prefHeight="25.0" prefWidth="194.0" promptText="Usuario" />
+            <PasswordField fx:id="txtPassword" layoutX="193.0" layoutY="248.0" prefHeight="25.0" prefWidth="194.0" promptText="contraseña" />
+            <Button layoutX="241.0" layoutY="313.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="98.0" text="Iniciar sesion" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
