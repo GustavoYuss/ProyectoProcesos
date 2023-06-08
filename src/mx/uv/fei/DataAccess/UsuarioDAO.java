@@ -32,4 +32,22 @@ public class UsuarioDAO {
         connection.close();
         return result;
     }
+    
+    public int recuperarTipo(Usuario usuario) throws SQLException{
+        int result = 0;
+        String query = "select * from encargado where nombre = ? and contrasena = ?";
+        DataBaseManager dataBaseManager = new DataBaseManager();
+        Connection connection = dataBaseManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query);
+        
+        statement.setString(1, usuario.getNombre());
+        statement.setString(2, usuario.getContraseña());
+        ResultSet resultSet = statement.executeQuery();
+        
+        while(resultSet.next()){
+            result = resultSet.getInt("tipo");
+        }
+        connection.close();
+        return result;
+    }
 }

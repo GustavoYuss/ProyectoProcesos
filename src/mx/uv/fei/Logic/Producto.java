@@ -9,34 +9,44 @@ package mx.uv.fei.Logic;
  * @author yusgu
  */
 public class Producto {
-    private int idProducto;
-    private String nombre;
-    private float precioUnitario;
+    private int productoId;
+    private String nombreP;
+    private float precio;
     private int unidad;
     private float precioTotal;
+    private String unidadMedida;
 
-    public int getIdProducto() {
-        return idProducto;
+    public Producto(){}
+    
+    public Producto(int productoId, String nombreP, float precio, String unidadMedida) {
+        this.productoId = productoId;
+        this.nombreP = nombreP;
+        this.precio = precio;
+        this.unidadMedida = unidadMedida;
+    }
+    
+    public int getProductoId() {
+        return productoId;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setProductoId(int productoId) {
+        this.productoId = productoId;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreP() {
+        return nombreP;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreP(String nombreP) {
+        this.nombreP = nombreP;
     }
 
-    public float getPrecioUnitario() {
-        return precioUnitario;
+    public float getPrecio() {
+        return precio;
     }
 
-    public void setPrecioUnitario(float precioUnitario) {
-        this.precioUnitario = precioUnitario;
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     public int getUnidad() {
@@ -54,5 +64,12 @@ public class Producto {
     public void setPrecioTotal(float precioTotal) {
         this.precioTotal = precioTotal;
     }
-    
+
+    public String getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    public void setUnidadMedida(String unidadMedida) {
+        this.unidadMedida = unidadMedida;
+    }
 }

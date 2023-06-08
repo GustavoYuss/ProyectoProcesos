@@ -135,13 +135,13 @@ public class VentasController implements Initializable {
     
     public void fillData(){
         if(this.tblProductos.getSelectionModel().getSelectedItem() != null){
-            this.txtPrecio.setText(Float.toString(this.tblProductos.getSelectionModel().getSelectedItem().getPrecioUnitario()));
-            this.txtNombre.setText(this.tblProductos.getSelectionModel().getSelectedItem().getNombre());
-            this.txtId.setText(Integer.toString(this.tblProductos.getSelectionModel().getSelectedItem().getIdProducto()));
+            this.txtPrecio.setText(Float.toString(this.tblProductos.getSelectionModel().getSelectedItem().getPrecio()));
+            this.txtNombre.setText(this.tblProductos.getSelectionModel().getSelectedItem().getNombreP());
+            this.txtId.setText(Integer.toString(this.tblProductos.getSelectionModel().getSelectedItem().getProductoId()));
             this.txtDisponibles.setText(Integer.toString(this.tblProductos.getSelectionModel().getSelectedItem().getUnidad()));
             this.txtComprar.setEditable(true);
             
-            int indice = alredyShoppingCart(this.tblProductos.getSelectionModel().getSelectedItem().getIdProducto());
+            int indice = alredyShoppingCart(this.tblProductos.getSelectionModel().getSelectedItem().getProductoId());
             System.out.println(indice);
             if(indice > -1){
                 this.txtComprar.setText(Integer.toString(carrito.get(indice).getUnidad()));
@@ -155,7 +155,7 @@ public class VentasController implements Initializable {
         
             try{
                 if(validarCantidad(Integer.parseInt(this.txtComprar.getText()))){
-                    precioTotal = this.tblProductos.getSelectionModel().getSelectedItem().getPrecioUnitario() * Integer.parseInt(this.txtComprar.getText());  
+                    precioTotal = this.tblProductos.getSelectionModel().getSelectedItem().getPrecio() * Integer.parseInt(this.txtComprar.getText());  
                     this.txtPrecioTotal.setText(Float.toString(precioTotal));
                 }
             }catch(IllegalArgumentException exception){
@@ -180,11 +180,11 @@ public class VentasController implements Initializable {
     
     public void agregarCarrito(){
         Producto producto = new Producto();
-        int indice = alredyShoppingCart(this.tblProductos.getSelectionModel().getSelectedItem().getIdProducto());
+        int indice = alredyShoppingCart(this.tblProductos.getSelectionModel().getSelectedItem().getProductoId());
         if(indice == -1){
-            producto.setIdProducto(this.tblProductos.getSelectionModel().getSelectedItem().getIdProducto());
-            producto.setNombre(this.tblProductos.getSelectionModel().getSelectedItem().getNombre());
-            producto.setPrecioUnitario(this.tblProductos.getSelectionModel().getSelectedItem().getPrecioUnitario());
+            producto.setProductoId(this.tblProductos.getSelectionModel().getSelectedItem().getProductoId());
+            producto.setNombreP(this.tblProductos.getSelectionModel().getSelectedItem().getNombreP());
+            producto.setPrecio(this.tblProductos.getSelectionModel().getSelectedItem().getPrecio());
             producto.setUnidad(Integer.parseInt(this.txtComprar.getText()));
             producto.setPrecioTotal(Float.parseFloat(this.txtPrecioTotal.getText()));
             carrito.add(producto);
@@ -263,7 +263,7 @@ public class VentasController implements Initializable {
     private int alredyShoppingCart(int id){
         int result = -1;
         for(Producto producto : carrito){
-            if(producto.getIdProducto() == id){
+            if(producto.getProductoId() == id){
                 result = carrito.indexOf(producto);
             }
         }
@@ -276,5 +276,9 @@ public class VentasController implements Initializable {
     
     public void vistaPromociones() throws IOException{
         ProyectoProcesos.changeView("/mx/uv/fei/GUI/AdministrarPromociones", 600, 400);
+    }
+    
+    public void cerrarSesion() throws IOException{
+        ProyectoProcesos.changeView("/mx/uv/fei/GUI/Login", 600, 400);
     }
 }

@@ -77,7 +77,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#vistaVenta" prefHeight="26.0" prefWidth="116.0" text="Ventas" />
             <Button mnemonicParsing="false" onAction="#vistaPromociones" prefHeight="26.0" prefWidth="111.0" text="Promociones" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Cerrar sesion" />
+            <Button mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="26.0" prefWidth="110.0" text="Cerrar sesion" />
          </children>
       </HBox>
    </children>

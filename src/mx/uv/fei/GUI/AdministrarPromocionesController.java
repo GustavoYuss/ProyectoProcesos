@@ -157,4 +157,8 @@ public class AdministrarPromocionesController implements Initializable {
     public void vistaPromociones() throws IOException{
         ProyectoProcesos.changeView("/mx/uv/fei/GUI/AdministrarPromociones", 600, 400);
     }
+    
+    public void cerrarSesion() throws IOException{
+        ProyectoProcesos.changeView("/mx/uv/fei/GUI/Login", 600, 400);
+    }
 }

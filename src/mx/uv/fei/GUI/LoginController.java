@@ -42,17 +42,25 @@ public class LoginController implements Initializable {
     
     public void login() throws IOException{
         int result = 0;
+        int tipo = 0;
+        String vista = "";
+        int weidth = 0, heigth = 0;
         Usuario usuario = new Usuario();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuario.setNombre(this.txtUsuario.getText());
         usuario.setContraseña(this.txtPassword.getText());
         try {
             result = usuarioDAO.checkUsuario(usuario);
+            tipo = usuarioDAO.recuperarTipo(usuario);
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(result == 1){
-            ProyectoProcesos.changeView("/mx/uv/fei/GUI/Ventas", 750, 550);
+            switch(tipo){
+                case 1: vista = "Ventas"; weidth = 750; heigth = 550; break;
+                case 2: vista = "VistaAdministrador"; weidth = 850; heigth = 600; break;
+            }
+            ProyectoProcesos.changeView("/mx/uv/fei/GUI/" + vista, weidth, heigth);
         }else{
             this.lblMensaje.setText("Contraseña o usuario incorrecto, vuelva a intentarlo");
         }

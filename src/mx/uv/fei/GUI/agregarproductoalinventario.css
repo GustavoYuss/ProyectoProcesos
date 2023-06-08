@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+.paneAgregarProducto{
+    -fx-background-color: #7b886b;
+    -fx-border-color: #c98bb9;
+    -fx-border-width: 2px;
+}
+}

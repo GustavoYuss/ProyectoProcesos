@@ -33,9 +33,9 @@ public class VentaDAO implements IVenta{
         ResultSet resultSet = statement.executeQuery();
         while(resultSet.next()){
             Producto producto = new Producto();
-            producto.setIdProducto(resultSet.getInt("T1.idproducto"));
-            producto.setNombre(resultSet.getString("T1.nombre"));
-            producto.setPrecioUnitario(resultSet.getFloat("T1.precio_unitario"));
+            producto.setProductoId(resultSet.getInt("T1.idproducto"));
+            producto.setNombreP(resultSet.getString("T1.nombre"));
+            producto.setPrecio(resultSet.getFloat("T1.precio_unitario"));
             producto.setUnidad(resultSet.getInt("T2.cantidad"));
             productos.add(producto);
         }
@@ -87,7 +87,7 @@ public class VentaDAO implements IVenta{
         PreparedStatement statement = connection.prepareStatement(query);
         
         statement.setFloat(1, producto.getUnidad());
-        statement.setInt(2, producto.getIdProducto());
+        statement.setInt(2, producto.getProductoId());
         result = statement.executeUpdate();
         connection.close();
         
@@ -123,7 +123,7 @@ public class VentaDAO implements IVenta{
         
         statement.setInt(1, producto.getUnidad());
         statement.setInt(2, venta);
-        statement.setInt(3, producto.getIdProducto());
+        statement.setInt(3, producto.getProductoId());
        
         result = statement.executeUpdate();
         connection.close();
