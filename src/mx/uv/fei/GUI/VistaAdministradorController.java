@@ -141,10 +141,11 @@ public class VistaAdministradorController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mx/uv/fei/GUI/EditarProducto.fxml"));
         Parent root;
         try {
-            root = loader.load();
-            EditarProductoController controladorParaEditar = loader.getController();
-            controladorParaEditar.setinfo(elegido.getProductoId());
+            EditarProductoController controladorParaEditar = new EditarProductoController();
+            controladorParaEditar.setinfo(elegido.getProductoId()); // Pasar la información antes de cargar el archivo FXML
+            loader.setController(controladorParaEditar);
 
+            root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
