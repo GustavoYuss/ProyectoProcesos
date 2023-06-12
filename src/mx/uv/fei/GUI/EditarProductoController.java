@@ -65,12 +65,85 @@ public class EditarProductoController implements Initializable {
         this.txtDosisProducto.setText(elegido.getUnidadMedida());
     }
 
+
+    private boolean guardarCambiosFR(){
+        boolean confirmation = false;
+            Alert confirmationMessage = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationMessage.setTitle("Confirmación");
+            confirmationMessage.setHeaderText("¿Guardar cambiios?");
+            confirmationMessage.setContentText("¿Desea guarda los cambios de actividad con la información del formulario?");
+            ButtonType btnYes = new ButtonType("Sí");
+            ButtonType btnNo = new ButtonType("No");
+            confirmationMessage.getButtonTypes().setAll(btnYes, btnNo);
+            Optional<ButtonType> option = confirmationMessage.showAndWait();
+            if(option.get() == btnYes){
+                confirmation = true;
+            } else if(option.get() == btnNo){
+            }
+            return confirmation;
+    }
+
+    public boolean todoOk(){
+        boolean ok = true;
+        if (txtNombreProducto.getText() == null || txtNombreProducto.getText().trim().isEmpty()){
+            txtNombreProducto.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            ok = false; 
+        }
+        if (txtPrecioProducto.getText() == null || txtPrecioProducto.getText().trim().isEmpty()){
+            txtPrecioProducto.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            ok = false; 
+        }
+        if (txtDosisProducto.getText() == null || txtDosisProducto.getText().trim().isEmpty()){
+            txtDosisProducto.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            ok = false; 
+        }
+
+        return ok;
+    }
+    public void malLlenado(){
+        Alert message= new Alert (Alert.AlertType.WARNING) ;
+        message.setTitle ("Advertencia!");
+        message.setContentText ("Por favor, llene de manera correcta los campos marcados en rojo.");
+        message.showAndWait();
+    }
     @FXML
     private void salir(ActionEvent event) {
+        Stage stage = (Stage) this.btnCancelar.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void guardarCambios(ActionEvent event) {
+        boolean camposOK = false;
+        camposOK = todoOk();
+        if(camposOK == true){
+            boolean resultado = guardarCambiosFR();
+            if(resultado == true){
+                setearGuardar();
+                mandarCambiosBD();
+                Stage stage = (Stage) this.btnGuardarcambio.getScene().getWindow();
+                stage.close();
+            }
+        } else{
+            malLlenado();
+        }
+    }
+    
+    private void setearGuardar(){
+        this.productoCambio.setNombreP(txtNombreProducto.getText());
+        this.productoCambio.setPrecio(Float.parseFloat((txtPrecioProducto.getText())));
+        this.productoCambio.setUnidadMedida(txtDosisProducto.getText());
+        this.productoCambio.setProductoId(idproducto);
+    }
+    
+    private void mandarCambiosBD(){
+        ProductoDAO dao = new ProductoDAO();
+        setearGuardar();
+        try{
+            dao.editarProducto(productoCambio);
+        }catch(SQLException e){
+            Logger.getLogger(EditarProductoController.class.getName()).log(Level.SEVERE, "No funcionó el editar en el controlador", e);
+        }
     }
     
 }
