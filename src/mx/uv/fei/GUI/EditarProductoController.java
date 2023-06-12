@@ -36,7 +36,7 @@ public class EditarProductoController implements Initializable {
     private Button btnGuardarcambio;
     
     private int idproducto;
-    Producto elegido = new Producto();
+    private Producto productoCambio = new Producto();
 
     /**
      * Initializes the controller class.
@@ -44,22 +44,22 @@ public class EditarProductoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            setProducto();
+            SetTextFields(setProducto());
         } catch (SQLException ex) {
             Logger.getLogger(EditarProductoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        SetTextFields();
     }    
     public void setinfo(int id){
         this.idproducto = id;
     }
     
-    private void setProducto() throws SQLException{
+    private Producto setProducto() throws SQLException{
         ProductoDAO dao = new ProductoDAO();
-        elegido = dao.obtenerproductoporID(idproducto);
+        Producto producto = dao.obtenerproductoporID(idproducto);
+        return producto;
     }
     
-    private void SetTextFields(){
+    private void SetTextFields(Producto elegido){
         this.txtNombreProducto.setText(elegido.getNombreP());
         this.txtPrecioProducto.setText(Float.toString(elegido.getPrecio()));
         this.txtDosisProducto.setText(elegido.getUnidadMedida());
